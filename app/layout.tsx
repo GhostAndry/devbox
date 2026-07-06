@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { Sidebar } from "@/components/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -37,6 +38,7 @@ export default function RootLayout({
             <main className="flex-1 overflow-y-auto">{children}</main>
           </div>
         </TooltipProvider>
+        <Analytics />
       </body>
     </html>
   );
