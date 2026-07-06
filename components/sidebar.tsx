@@ -17,7 +17,7 @@ import {
 import { ChevronLeft, ChevronRight, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function Sidebar() {
+export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
 
@@ -97,7 +97,7 @@ export function Sidebar() {
                             ? "bg-primary/15 text-primary font-medium"
                             : "text-muted-foreground hover:bg-accent hover:text-foreground"
                         )}>
-                          <Link href={`/${tool.slug}`} className="flex items-center justify-center">
+                          <Link href={`/${tool.slug}`} className="flex items-center justify-center" onClick={onNavigate}>
                             <ToolIcon className="h-4 w-4 shrink-0" />
                           </Link>
                         </TooltipTrigger>
@@ -113,6 +113,7 @@ export function Sidebar() {
                     <Link
                       key={tool.slug}
                       href={`/${tool.slug}`}
+                      onClick={onNavigate}
                       className={cn(
                         "flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-sm transition-all",
                         isActive

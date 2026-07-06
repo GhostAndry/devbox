@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import { Sidebar } from "@/components/sidebar";
+import { AppShell } from "@/components/app-shell";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
@@ -33,10 +33,7 @@ export default function RootLayout({
     >
       <body className={`${geistSans.variable} ${geistMono.variable} h-dvh flex flex-col bg-background text-foreground antialiased`}>
         <TooltipProvider>
-          <div className="flex flex-1 overflow-hidden">
-            <Sidebar />
-            <main className="flex-1 overflow-y-auto">{children}</main>
-          </div>
+          <AppShell>{children}</AppShell>
         </TooltipProvider>
         <Analytics />
       </body>

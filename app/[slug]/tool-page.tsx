@@ -25,14 +25,14 @@ export function ToolPage({ tool }: ToolPageProps) {
   }
 
   return (
-    <div className="flex flex-1 flex-col px-8 py-8">
-      <div className="mb-8 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-          <ToolIcon className="h-5 w-5 text-primary" />
+    <div className="flex flex-1 flex-col px-4 py-6 sm:px-6 md:px-8 md:py-8">
+      <div className="mb-6 flex items-center gap-3">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 sm:h-10 sm:w-10">
+          <ToolIcon className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
         </div>
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">{tool.name}</h1>
-          <p className="mt-0.5 text-sm text-muted-foreground">
+        <div className="min-w-0">
+          <h1 className="text-xl font-bold tracking-tight sm:text-2xl">{tool.name}</h1>
+          <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm line-clamp-2">
             {tool.description}
           </p>
         </div>
